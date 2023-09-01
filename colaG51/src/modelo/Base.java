@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Descripción de la clase …
+* @author david.roa@uao.edu.co David Santiago Roa Código 2215926
+* @author
+* @date 12 Agosto2014
+* @version 1.0
+*/
+
 package modelo;
 
-/**
- *
- * @author Alejo-PC
- */
+
 public abstract class Base {
     public abstract Base copy();
 }

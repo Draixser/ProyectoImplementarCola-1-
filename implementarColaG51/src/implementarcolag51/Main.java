@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Descripción de la clase …
+* @author david.roa@uao.edu.co David Santiago Roa Código 2215926
+* @author
+* @date 12 Agosto2014
+* @version 1.0
+*/
+
 package implementarcolag51;
 
 import javafx.application.Application;
@@ -11,10 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Alejo-PC
- */
+
 public class Main extends Application {
     
     @Override

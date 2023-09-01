@@ -1,15 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Descripción de la clase …
+* @author david.roa@uao.edu.co David Santiago Roa Código 2215926
+* @author
+* @date 12 Agosto2014
+* @version 1.0
+*/
+
+
 package implementarcolag51;
 
 
-import datos.FactoryCliente;
+
 import datos.Caja;
 import datos.FactoryCliente;
-import datos.Clientes;
 import datos.Clientes;
 import java.net.URL;
 import java.util.Iterator;
@@ -23,6 +26,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -31,29 +35,14 @@ import javafx.scene.web.WebView;
 import javafx.util.Duration;
 import modelo.Cola;
 
-/**
- *
- * @author Alejo-PC
- */
+
 public class Controller implements Initializable {
 
-    @FXML
-    private Label tituloL;
-    @FXML
-    private Label nombrePL;
-    @FXML
-    private Label correoPL;
-    @FXML
-    private Label numPL;
+  
 
+    private Button Empezar;
     @FXML
-    private TextField nombreTXT;
-    @FXML
-    private TextField correoTXT;
-    @FXML
-    private TextField numTXT;
-    @FXML
-    private TextArea mostrarTAXT;
+    private Button Detener;
     @FXML
     private WebView webViewCola;
      @FXML
@@ -123,8 +112,8 @@ public class Controller implements Initializable {
         }));
         t.setCycleCount(Animation.INDEFINITE);
         
-        WebEngineCola = webViewCola.getEngine();
-        WebEngineCajeros = webViewCajeros.getEngine();
+        ///WebEngineCola = webViewCola.getEngine();
+       // WebEngineCajeros = webViewCajeros.getEngine();
         
         sumaCajero = "<table border=1 width=100%><tr>"; 
                 
@@ -140,9 +129,16 @@ public class Controller implements Initializable {
     crearCliente();
     revisarCajerosLibres();
     tiempoTotal++;
-    ///WebEngineCola.loadContent(hacerHtmlCola());
-  //  WebEngineCajeros.loadContent(hacerHtmlCajeros());
+    
+    
+    //WebEngineCola.loadContent(hacerHtmlCola());
+    //WebEngineCajeros.loadContent(hacerHtmlCajeros());
     }
+    
+    private void detener(){
+    t.stop();
+    }
+    
     
     private void crearCliente() {
         int  numCliente = (int)(Math.random() * 2);

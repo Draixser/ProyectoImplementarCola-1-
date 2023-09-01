@@ -1,8 +1,11 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Descripción de la clase …
+* @author david.roa@uao.edu.co David Santiago Roa Código 2215926
+* @author
+* @date 12 Agosto2014
+* @version 1.0
+*/
+
 package modelo;
 
 
@@ -13,10 +16,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-/**
- *
- * @author Alejo-PC
- */
+
 public class Cola<T extends Base> {
     
     private static final String[] modelos = {"REF467", "RQWE12", "ASD322"};
