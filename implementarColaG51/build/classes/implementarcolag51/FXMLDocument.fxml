@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="759.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="implementarcolag51.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="implementarcolag51.Controller">
     <children>
         <Button fx:id="button" layoutX="192.0" layoutY="315.0" onAction="#encolarPersonas" text="Encolar" />
         <Label fx:id="tituloL" layoutX="83.0" layoutY="14.0" minHeight="16" minWidth="69" text="Insertar Personas a la Cola">
@@ -22,5 +23,6 @@
       <Label fx:id="NumPL" layoutX="42.0" layoutY="195.0" text="Número Celular Persona" />
       <TextArea fx:id="mostrarTAXT" layoutX="455.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" />
       <Button layoutX="315.0" layoutY="315.0" onAction="#mostrarPersonas" text="Mostrar" />
+      <WebView fx:id="web" layoutX="455.0" layoutY="145.0" prefHeight="200.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

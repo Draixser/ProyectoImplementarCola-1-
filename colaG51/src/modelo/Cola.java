@@ -5,6 +5,9 @@
  */
 package modelo;
 
+
+import datos.Caja;
+
 import datos.Clientes;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,8 +19,9 @@ import java.util.Random;
  */
 public class Cola<T extends Base> {
     
-    private static final String[] modelos = {"REF44", "RFEW3", "FEE33"};
-    private static final String[] nombres = {"FREW", "RFEW", "FGTS"};
+    private static final String[] modelos = {"REF467", "RQWE12", "ASD322"};
+    private static final String[] nombres = {"DER", "TRED", "FMNM"};
+    private static final String [] estadoCaja = {"Libre", "Ocupado"};
     private static final Random random = new Random(); 
     private Queue<T> cola;
 
@@ -42,6 +46,18 @@ public class Cola<T extends Base> {
         int tiempoEsperaAleatorio = 1 + random.nextInt(6);
         
         return new Clientes(nombreAleatorio, modeloAleatorio, tiempoEsperaAleatorio);
+        }
+        
+        public static Caja CajaAleatoria(){
+       
+        int edadClientes = 18 + random.nextInt(42);
+        int numClientes = 0;
+        int tiempoTransaccion = 1 + random.nextInt(6);
+        Boolean estadoDeCaja = null;
+        
+        
+        return new Caja(estadoDeCaja,edadClientes,numClientes,tiempoTransaccion);
+        
     }
     @Override
     public String toString() {

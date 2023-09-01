@@ -5,7 +5,11 @@
  */
 package implementarcolag51;
 
-import datos.Carro;
+
+import datos.FactoryCliente;
+import datos.Caja;
+import datos.FactoryCliente;
+import datos.Clientes;
 import datos.Clientes;
 import java.net.URL;
 import java.util.Iterator;
@@ -52,8 +56,13 @@ public class Controller implements Initializable {
     private TextArea mostrarTAXT;
     @FXML
     private WebView webViewCola;
+     @FXML
+    private WebView webViewCajeros;
     @FXML
     private WebEngine WebEngineCola;
+    @FXML
+    private WebEngine WebEngineCajeros;
+    
     
     private Cola<Clientes>cola;
     private LinkedList<Caja> cajero;
@@ -72,19 +81,12 @@ public class Controller implements Initializable {
     private Timeline t;
     String numClientes;
     
-    Cola<Carro> colaCarro;
+    Cola<Clientes> colaCarro;
     private String sumaCajero;
 
     @FXML
     private void encolarPersonas(ActionEvent event) {
-//        System.out.println("You clicked me!");
-//        label.setText("Hello World!");
 
-        String nombreP = nombreTXT.getText();
-        String correoP = correoTXT.getText();
-        String numP = numTXT.getText();
-
-        colaCarro.encolar(new Carro(nombreP, correoP, numP));
     }
 
      @FXML
@@ -92,34 +94,37 @@ public class Controller implements Initializable {
 //        System.out.println("You clicked me!");
 //        label.setText("Hello World!");
 
-        mostrarTAXT.setText(colaCarro.toString());
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         // ...
-        colaCarro = new Cola<>();
+        cola = new Cola<>();
         cajero = new LinkedList<>();
-        for(int i - 0; i <= 5; i++)
+        for(int i = 0; i <= 5; i++)
         {
             cajero.add(new Caja());
         }
-        System.out.println(cajero.toString);
+        System.out.println(cajero.toString());
         
+        
+        
+             
+    
         t = new Timeline(new KeyFrame (Duration.millis(5000),
-                new EventHandler<ActionEcent>(){
+                new EventHandler<ActionEvent>(){
             public void handle(ActionEvent event){
                 hacerQueTodoFuncione();     
             }
 
    
-
+                
    
         }));
         t.setCycleCount(Animation.INDEFINITE);
         
         WebEngineCola = webViewCola.getEngine();
-        webEngineCajeros = webEngineCajeros.getEngine();
+        WebEngineCajeros = webViewCajeros.getEngine();
         
         sumaCajero = "<table border=1 width=100%><tr>"; 
                 
@@ -132,35 +137,39 @@ public class Controller implements Initializable {
         
         }
     private void hacerQueTodoFuncione(){
-        crearCliente();
-        revisarCajerosLibres();
-        tiempoTotal++;
-        getEngineCola.loadContent(hacerHtmlCola());
-        getEngineCajeros.loadContent(hacerHtmlCajeros());
+    crearCliente();
+    revisarCajerosLibres();
+    tiempoTotal++;
+    ///WebEngineCola.loadContent(hacerHtmlCola());
+  //  WebEngineCajeros.loadContent(hacerHtmlCajeros());
     }
+    
     private void crearCliente() {
         int  numCliente = (int)(Math.random() * 2);
-        System.out.println("Se crearon" + numClientes +);
-        for (int i = 0; i < numClientes; i++){
+       
+        System.out.println("Se crearon" + numCliente );
+    
+        for (int i = 0; i < numCliente; i++){
         Clientes  c = FactoryCliente.create();
         cola.encolar(c);
     }
     }
     private void revisarCajerosLibres() {
         System.out.println("Atender clientes");
-        for(Iterator<Caja> itCaja = cajero.Iterator(); itCaja,hasNext());{
+    
+       for (Iterator<Caja> itCaja = cajero.iterator(); itCaja.hasNext();) {
         Caja caja = itCaja.next();
         if (caja.isEstado() && !cola.estaVacia()){
             Clientes c = cola.desencolar();
             
             caja.setEstado(false);
-            caja.setTiempoTransaccion(c.getTiempoTransaccion());
-            caja.setEdadCliente(c.getEdadCliente());
+            caja.setTiempoTransaccion(c.getTiempoEsperaAleatorio());
+            caja.setEdadCliente(c.getTiempoEsperaAleatorio());
             caja.setNumClientes(caja.getNumClientes());
         }
         else{
-            if (caja.gerTiempoTransaccion() > 0){
-                caja.getTiempoTransaccion(caja.getTiempoTransaccion - 1);
+            if (caja.getTiempoTransaccion() > 0){
+                caja.setTiempoTransaccion(caja.getTiempoTransaccion() - 1);
                 
                 if(caja == cajero.get(0)){
                     sumaCaja1++;

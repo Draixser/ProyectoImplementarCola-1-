@@ -7,8 +7,10 @@ package vista;
 
 
 
+
+import datos.Caja;
 import datos.Clientes;
-import datos.Receptor;
+
 import modelo.Cola;
 
 /**
@@ -23,16 +25,16 @@ public class NewMain {
     public static void main(String[] args) {
         // TODO code application logic here
         Cola<Clientes> colaCarros = new Cola<>();
-        Receptor[] receptores = new Receptor[4];
+        Caja[] Cajeros = new Caja[4];
         for(int i = 0; i < 4; i++){
-            receptores[i] = new Receptor(i + 1);
+            Cajeros[i] = new Caja(i + 1);
         }
        
         while (true) {
-            for (Receptor receptor : receptores){
-                if(!colaCarros.estaVacia() && !receptor.ocupado()){
+            for (Caja caja : Cajeros){
+                if(!caja.isEstado() && !colaCarros.estaVacia()){
                     Clientes carros = colaCarros.desencolar();
-                    receptor.atenderCarro(carros);}
+                    caja.atenderCarro(carros);}
             }
             
         }

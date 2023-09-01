@@ -26,6 +26,7 @@ public class Clientes extends Base {
         this.tiempoEsperaAleatorio = tiempoEsperaAleatorio;
     }
 
+
     public String getNombreAleatorio() {
         return nombreAleatorio;
     }
